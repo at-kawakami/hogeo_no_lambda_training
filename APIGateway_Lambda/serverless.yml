@@ -3,8 +3,7 @@ service: TestFunctions
 plugins:
   - serverless-step-functions
   - serverless-pseudo-parameters
-#  - serverless-apigateway-plugin
-#  - serverless-apigateway-service-proxy
+
 provider:
   name: aws
   runtime: python3.8
