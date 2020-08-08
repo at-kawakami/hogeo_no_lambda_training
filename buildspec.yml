@@ -20,7 +20,7 @@ phases:
       #- npm audit fix
       #- npm ls --depth=0
      # - sls plugin install -n serverless-apigateway-service-proxy
-      - sls plugin list|grep step
+      #- sls plugin list|grep step
       - serverless -v
       #- npm list --depth=0
       #- sls plugin install -n serverless-python-requirements
