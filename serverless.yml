@@ -37,13 +37,13 @@ functions:
     environment:
       slackChannel: hogeo_no_slack_channel
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
-resourcePolicy:
-  - Effect: Allow
-    Principal: '*'
-    Action: execute-api:Invoke
-    Resource:
-      - execute-api:/*/*/*
-    Condition:
-      IpAddress:
-        aws:SourceIp:
-          - '61.21.109.72/32'
+    resourcePolicy:
+      - Effect: Allow
+        Principal: '*'
+        Action: execute-api:Invoke
+        Resource:
+          - execute-api:/*/*/*
+        Condition:
+          IpAddress:
+            aws:SourceIp:
+              - '61.21.109.72/32'
