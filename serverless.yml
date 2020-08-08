@@ -10,15 +10,15 @@ provider:
   region: us-east-2
   stage: ${opt:stage, 'Development'}
   resourcePolicy:
-  - Effect: Allow
-    Principal: '*'
-    Action: execute-api:Invoke
-    Resource:
-      - execute-api:/*/*/*
-    Condition:
-      IpAddress:
-        aws:SourceIp:
-          - '61.21.109.72/32'
+    - Effect: Allow
+      Principal: '*'
+      Action: execute-api:Invoke
+      Resource:
+        - execute-api:/*/*/*
+      Condition:
+        IpAddress:
+          aws:SourceIp:
+            - '61.21.109.72/32'
   #apiKeys:
   #  - test_api_keys
 
