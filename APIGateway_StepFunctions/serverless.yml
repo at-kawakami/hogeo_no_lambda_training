@@ -1,0 +1,66 @@
+service: TestFunctions
+
+plugins:
+  - serverless-step-functions
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-2
+  stage: ${opt:stage, 'Development'}
+  resourcePolicy:
+    - Effect: Allow
+      Principal: '*'
+      Action: execute-api:Invoke
+      Resource:
+        - execute-api:/*/*/*
+      Condition:
+        IpAddress:
+          aws:SourceIp:
+            - '61.21.109.72/32'
+
+#custom:
+#  Development:
+#    sns_arn: "arn:aws:sns:us-east-2:781667190002:DevelopmentNotification"
+#  Staging:
+#    sns_arn: "arn:aws:sns:us-east-2:781667190002:StagingNotification"
+#  Production:
+#    sns_arn: "arn:aws:sns:us-east-2:781667190002:ProductionNotification"
+
+configValidationMode: error
+
+stepFunctions:
+  stateMachines:
+    #validate: true
+    hellostepfunc1:
+      events:
+        - http:
+            path: gofunction
+            method: GET
+      definition:
+        Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
+        StartAt: HelloWorld1
+        States:
+          HelloWorld1:
+            Type: Task
+            Resource: "arn:aws:states:::lambda:invoke"
+            Parameters:
+              FunctionName:
+                #Fn::GetAtt: [hello, Arn]
+                ${self:provider.stage}TestFunctions
+            End: true
+
+#functions:
+#  Function1:
+#    name: ${self:provider.stage}TestFunctions
+#    handler: handler.lambda_handler
+#    events:
+#      - http:
+#          integration: lambda
+#          path: hello
+#          method: post
+#    environment:
+#      slackChannel: hogeo_no_slack_channel
+#      HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
+

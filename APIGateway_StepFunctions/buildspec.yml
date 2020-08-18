@@ -1,0 +1,23 @@
+
+version: 0.2
+
+#run-as:ubuntu
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+
+  build:
+    commands:
+      - npm -v
+      - npm init -y
+      - npm install -g serverless
+      - npm install --save-dev serverless-step-functions
+      - npm install serverless-pseudo-parameters
+      - npm install
+      - npm audit fix
+      - serverless -v
+      - serverless plugin install --name serverless-step-functions
+      - sls config --verbose credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+      - sls deploy --stage $TARGET_ENV
