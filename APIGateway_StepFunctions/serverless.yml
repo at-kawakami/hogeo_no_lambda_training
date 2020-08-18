@@ -9,6 +9,8 @@ provider:
   runtime: python3.8
   region: us-east-2
   stage: ${opt:stage, 'Development'}
+  deploymentBucket:
+    name: at-serverless-deployment-bucket
   resourcePolicy:
     - Effect: Allow
       Principal: '*'
