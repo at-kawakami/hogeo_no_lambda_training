@@ -10,7 +10,7 @@ provider:
   region: us-east-2
   stage: ${opt:stage, 'Development'}
   deploymentBucket:
-    name: at-serverless-deployment-buckets
+    name: at-serverless-deployment-bucket
   resourcePolicy:
     - Effect: Allow
       Principal: '*'
@@ -38,8 +38,8 @@ stepFunctions:
     hellostepfunc1:
       events:
         - http:
-            path: gofunction
-            method: GET
+            path: exec-step-func
+            method: POST
       definition:
         Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
         StartAt: HelloWorld1
@@ -53,16 +53,16 @@ stepFunctions:
                 ${self:provider.stage}TestFunctions
             End: true
 
-#functions:
-#  Function1:
-#    name: ${self:provider.stage}TestFunctions
-#    handler: handler.lambda_handler
-#    events:
-#      - http:
-#          integration: lambda
-#          path: hello
-#          method: post
-#    environment:
-#      slackChannel: hogeo_no_slack_channel
-#      HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
+functions:
+  Function1:
+    name: ${self:provider.stage}TestFunctions
+    handler: handler.lambda_handler
+    events:
+      - http:
+          integration: lambda
+          path: hello
+          method: post
+    environment:
+      slackChannel: hogeo_no_slack_channel
+      HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
 
