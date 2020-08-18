@@ -10,7 +10,7 @@ provider:
   region: us-east-2
   stage: ${opt:stage, 'Development'}
   deploymentBucket:
-    name: at-serverless-deployment-bucket
+    name: at-serverless-deployment-buckets
   resourcePolicy:
     - Effect: Allow
       Principal: '*'
