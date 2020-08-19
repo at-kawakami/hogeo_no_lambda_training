@@ -10,12 +10,12 @@ provider:
   region: us-east-2
   stage: ${opt:stage, 'Development'}
   # existing resources
-  apiGateway:
-    restApiId: 4zcn3ogybg
-    restApiRootResourceId: cbnjl78tb5
-    restApiResources:
-      '/say-hello': gzxf0i
-      '/{proxy+}': 2898oe
+  #apiGateway:
+  #  restApiId: 4zcn3ogybg
+  #  restApiRootResourceId: cbnjl78tb5
+  #  restApiResources:
+  #    '/say-hello': gzxf0i
+  #    '/{proxy+}': 2898oe
   logs:
     restApi:
       role: arn:aws:iam::571429965935:role/serverlessApiGatewayCloudWatchRole
