@@ -11,6 +11,7 @@ provider:
   stage: ${opt:stage, 'Development'}
   logs:
     restApi:
+      role: arn:aws:iam::571429965935:role/serverlessApiGatewayCloudWatchRole
       fullExecutionData: true
   deploymentBucket:
     name: at-serverless-deployment-bucket
