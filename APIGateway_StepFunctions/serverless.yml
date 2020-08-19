@@ -10,8 +10,7 @@ provider:
   region: us-east-2
   stage: ${opt:stage, 'Development'}
   apiGateway:
-    restApiId:
-      'Fn::ImportValue': 4zcn3ogybg
+    restApiId: 4zcn3ogybg
   logs:
     restApi:
       role: arn:aws:iam::571429965935:role/serverlessApiGatewayCloudWatchRole
