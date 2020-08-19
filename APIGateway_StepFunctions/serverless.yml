@@ -47,11 +47,11 @@ stepFunctions:
   stateMachines:
     #validate: true
     hellostepfunc1:
-      events:
-        - http:
-            path: 
-              '/say-hello': gzxf0i
-            method: POST
+      #events:
+      #  - http:
+      #      path: 
+      #        '/say-hello': gzxf0i
+      #      method: POST
       definition:
         Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
         StartAt: HelloWorld1
