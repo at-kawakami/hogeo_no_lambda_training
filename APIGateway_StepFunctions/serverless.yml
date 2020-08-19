@@ -49,7 +49,7 @@ stepFunctions:
     hellostepfunc1:
       events:
         - http:
-            path: exec-step-func
+            path: say-hello
             method: POST
       definition:
         Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
