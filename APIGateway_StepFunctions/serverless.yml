@@ -9,6 +9,8 @@ provider:
   runtime: python3.8
   region: us-east-2
   stage: ${opt:stage, 'Development'}
+  apiKeys:
+    - HogeoAPIKey
   logs:
     restApi:
       role: arn:aws:iam::571429965935:role/serverlessApiGatewayCloudWatchRole
@@ -66,6 +68,7 @@ functions:
           integration: lambda
           path: hello
           method: post
+          private: true
     environment:
       slackChannel: hogeo_no_slack_channel
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
