@@ -9,6 +9,9 @@ provider:
   runtime: python3.8
   region: us-east-2
   stage: ${opt:stage, 'Development'}
+  logs:
+    restApi:
+      fullExecutionData: true
   deploymentBucket:
     name: at-serverless-deployment-bucket
   resourcePolicy:
