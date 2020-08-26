@@ -73,14 +73,14 @@ resources:
     Function2LogGroup:
       Properties:
         RetentionInDays: 30
-    GatewayResponse:
-      Type: 'AWS::ApiGateway::GatewayResponse'
-      Properties:
-        #ResponseParameters:
-        #  gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-        #  gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
-        ResponseTemplates: !Join [ ":", [ a, b, c ] ]
-        ResponseType: EXPIRED_TOKEN
-        #RestApiId: 
-        #  Ref: 'ApiGatewayRestApi'
-        StatusCode: '401'
+    #GatewayResponse:
+    #  Type: 'AWS::ApiGateway::GatewayResponse'
+    #  Properties:
+    #    #ResponseParameters:
+    #    #  gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+    #    #  gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+    #    ResponseTemplates: !Join [ ":", [ a, b, c ] ]
+    #    ResponseType: EXPIRED_TOKEN
+    #    #RestApiId: 
+    #    #  Ref: 'ApiGatewayRestApi'
+    #    StatusCode: '401'
