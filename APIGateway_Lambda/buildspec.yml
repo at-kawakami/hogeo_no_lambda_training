@@ -10,6 +10,7 @@ phases:
 
   build:
     commands:
+      - cd APIGateway_Lambda
       - npm -v
       - npm init -y
       - npm install -g serverless
