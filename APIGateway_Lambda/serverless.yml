@@ -59,10 +59,18 @@ functions:
     environment:
       slackChannel: hogeo_no_slack_channel
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
+  Function2:
+    name: ${self:provider.stage}TestFunctions2
+    handler: handler.lambda_handler
+    events:
+      - http:
+          integration: lambda
+          path: hello
+          method: post
 
 resources:
   extensions:
-    Function1LogGroup:
+    Function2LogGroup:
       Properties:
         RetentionInDays: 30
     GatewayResponse:
