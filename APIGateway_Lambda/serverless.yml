@@ -60,11 +60,11 @@ functions:
       slackChannel: hogeo_no_slack_channel
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
 
-Resources:
+resources:
   extensions:
     Function1LogGroup:
       Properties:
-        RetentionInDays: '30'
+        RetentionInDays: 30
     GatewayResponse:
       Type: 'AWS::ApiGateway::GatewayResponse'
       Properties:
