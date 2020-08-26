@@ -65,7 +65,7 @@ functions:
     events:
       - http:
           integration: lambda
-          path: hello
+          path: halo
           method: post
 
 resources:
