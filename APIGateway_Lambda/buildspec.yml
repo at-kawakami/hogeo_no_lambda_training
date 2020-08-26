@@ -17,6 +17,8 @@ phases:
       - npm install serverless-pseudo-parameters
       - npm install
       #- npm audit fix
+      - pwd
+      - ls -l
       - serverless -v
       - sls config --verbose credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
       - sls deploy --stage $TARGET_ENV
