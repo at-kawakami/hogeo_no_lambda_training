@@ -60,7 +60,7 @@ functions:
       slackChannel: hogeo_no_slack_channel
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
 
-resources:
+Resources:
   extensions:
     Function1LogGroup:
       Properties:
