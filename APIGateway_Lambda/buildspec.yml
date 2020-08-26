@@ -16,7 +16,7 @@ phases:
       - npm install --save-dev serverless-step-functions
       - npm install serverless-pseudo-parameters
       - npm install
-      - npm audit fix
+      #- npm audit fix
       - serverless -v
       - serverless plugin install --name serverless-step-functions
       - sls config --verbose credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
