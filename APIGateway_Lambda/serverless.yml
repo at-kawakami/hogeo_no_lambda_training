@@ -62,6 +62,9 @@ functions:
 
 resources:
   extensions:
+    Function1LogGroup:
+      Properties:
+        RetentionInDays: '30'
     GatewayResponse:
       Type: 'AWS::ApiGateway::GatewayResponse'
       Properties:
