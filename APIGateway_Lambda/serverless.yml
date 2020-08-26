@@ -61,7 +61,7 @@ functions:
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
 
 resources:
-  Resources:
+  extensions:
     GatewayResponse:
       Type: 'AWS::ApiGateway::GatewayResponse'
       Properties:
@@ -70,6 +70,6 @@ resources:
         #  gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
         ResponseTemplates: !Join [ ":", [ a, b, c ] ]
         ResponseType: EXPIRED_TOKEN
-        RestApiId: 
-          Ref: 'ApiGatewayRestApi'
+        #RestApiId: 
+        #  Ref: 'ApiGatewayRestApi'
         StatusCode: '401'
