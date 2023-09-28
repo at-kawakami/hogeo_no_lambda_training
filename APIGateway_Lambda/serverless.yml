@@ -59,4 +59,27 @@ functions:
     environment:
       slackChannel: hogeo_no_slack_channel
       HookUrl: https://hooks.slack.com/services/xxxxxxxxxxx/xxxxxxxxxxxx/xxxxxxxxxxxxx
+  Function2:
+    name: ${self:provider.stage}TestFunctions2
+    handler: handler.lambda_handler
+    events:
+      - http:
+          integration: lambda
+          path: halo
+          method: post
 
+resources:
+  extensions:
+    Function2LogGroup:
+      Properties:
+        RetentionInDays: 30
+    GatewayResponse:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        #ResponseParameters:
+        #  gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+        #  gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseTemplates: !Join [ ":", [ a, b, c ] ]
+        ResponseType: EXPIRED_TOKEN
+        RestApiId: 4zcn3ogybg
+        StatusCode: '401'

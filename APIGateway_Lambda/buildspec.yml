@@ -10,14 +10,16 @@ phases:
 
   build:
     commands:
+      - cd APIGateway_Lambda
       - npm -v
       - npm init -y
       - npm install -g serverless
       - npm install --save-dev serverless-step-functions
       - npm install serverless-pseudo-parameters
       - npm install
-      - npm audit fix
+      #- npm audit fix
+      - pwd
+      - ls -l
       - serverless -v
-      - serverless plugin install --name serverless-step-functions
       - sls config --verbose credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
       - sls deploy --stage $TARGET_ENV

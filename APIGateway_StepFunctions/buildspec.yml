@@ -10,20 +10,15 @@ phases:
 
   build:
     commands:
+      - cd APIGateway_StepFunctions
       - npm -v
       - npm init -y
       - npm install -g serverless
       - npm install --save-dev serverless-step-functions
       - npm install serverless-pseudo-parameters
-      #- npm install --save serverless-apigateway-plugin
       - npm install
-      - npm audit fix
-      #- npm ls --depth=0
-     # - sls plugin install -n serverless-apigateway-service-proxy
-      #- sls plugin list|grep step
+      #- npm audit fix
       - serverless -v
       - serverless plugin install --name serverless-step-functions
-      - npm list --depth=0
-      #- sls plugin install -n serverless-python-requirements
       - sls config --verbose credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
       - sls deploy --stage $TARGET_ENV
